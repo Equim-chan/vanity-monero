@@ -1,9 +1,11 @@
 package main
 
 import (
+	"bufio"
 	"context"
 	"crypto/rand"
 	"fmt"
+	"os"
 	"regexp"
 	"runtime"
 	"strconv"
@@ -22,6 +24,8 @@ const (
 	mPrefix
 	mRegex
 )
+
+var stdin = bufio.NewScanner(os.Stdin)
 
 func main() {
 	var network vanity.Network
@@ -341,6 +345,36 @@ PATTERN:
 				stdin.Scan()
 			}
 			return
+		}
+	}
+}
+
+func prompt(question string) string {
+	for {
+		fmt.Print(question + " ")
+		stdin.Scan()
+		ans := strings.TrimSpace(stdin.Text())
+		if ans != "" {
+			return ans
+		}
+		fmt.Println("can't be empty")
+	}
+}
+
+func promptComfirm(question string) bool {
+	return prompt(question) == "y"
+}
+
+func promptNumber(question string, min, max int) int {
+	for {
+		n, err := strconv.Atoi(prompt(question))
+		switch {
+		case err != nil:
+			fmt.Println("invalid number")
+		case n < min || n > max:
+			fmt.Println("invalid range")
+		default:
+			return n
 		}
 	}
 }

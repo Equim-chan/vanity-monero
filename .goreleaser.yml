@@ -1,4 +1,4 @@
-builds:
+build:
   main: cmd/vanity-monero
   binary: vanity-monero
   ldflags: -s -w
