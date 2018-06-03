@@ -162,6 +162,7 @@ PATTERN:
 	fmt.Println()
 
 	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
 	result := make(chan *vanity.Key)
 	ops := uint64(0)
 	for i := 0; i < threads; i++ {
