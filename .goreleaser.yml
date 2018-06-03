@@ -1,0 +1,43 @@
+build:
+  main: cmd/vanity-monero/main.go
+  binary: vanity-monero
+  ldflags: -s -w
+  goos:
+    - darwin
+    - linux
+    - windows
+    - freebsd
+    - netbsd
+    - openbsd
+    - solaris
+  goarch:
+    - amd64
+    - 386
+    - arm
+    - arm64
+    - mips
+    - mips64
+    - mipsle
+    - mips64le
+  goarm:
+    - 5
+    - 6
+    - 7
+  ignore:
+    - goos: darwin
+      goarch: 386
+    - goos: openbsd
+      goarch: arm
+    - goos: freebsd
+      goarch: arm
+    - goos: netbsd
+      goarch: arm
+    - goos: solaris
+      goarch: arm
+
+archive:
+  name_template: "{{ .ProjectName }}-{{ .Os }}-{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+  format: tar.xz
+  format_overrides:
+    - goos: windows
+      format: zip

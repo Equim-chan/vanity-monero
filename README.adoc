@@ -1,6 +1,7 @@
 = vanity-monero
 Equim <https://github.com/Equim-chan[@Equim-chan]>
 
+image:https://img.shields.io/travis/Equim-chan/vanity-monero.svg[Travis, link=https://travis-ci.org/Equim-chan/vanity-monero]
 image:https://img.shields.io/github/release/Equim-chan/vanity-monero.svg[Release, link=https://github.com/Equim-chan/vanity-monero/releases/latest]
 image:https://goreportcard.com/badge/github.com/Equim-chan/vanity-monero[Go Report Card, link=https://goreportcard.com/report/github.com/Equim-chan/vanity-monero]
 image:https://img.shields.io/github/license/Equim-chan/vanity-monero.svg[License, link=https://github.com/Equim-chan/vanity-monero/blob/master/LICENSE]
