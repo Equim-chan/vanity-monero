@@ -35,13 +35,18 @@ const (
 var stdin = bufio.NewScanner(os.Stdin)
 
 func main() {
-	wMode := wmStandard
+	var wMode workMode
 	var partnerSpendPub, partnerViewPub *[32]byte // For split-key construct
 	var myKey, partnerKey *vanity.Key             // For split-key restore
 	fmt.Println("Select work mode:")
 	fmt.Println("1) Standard mode")
 	fmt.Println("2) Split-key mode")
-	if promptNumber("Your choice:", 1, 2) == 2 {
+	fmt.Println("3) About")
+	switch promptNumber("Your choice:", 1, 3) {
+	case 1:
+		wMode = wmStandard
+
+	case 2:
 		wMode = wmSplitKey
 		fmt.Println("Select your circumstance:")
 		fmt.Println("1) I want someone else (can be untrusted) to generate a vanity address for me")
@@ -69,27 +74,33 @@ func main() {
 			fmt.Println("Partial Public View Key:")
 			fmt.Printf("%x\n", *pubView)
 			fmt.Println()
-			fmt.Println()
-			if runtime.GOOS == "windows" {
-				fmt.Println("[Press Enter to exit]")
-				stdin.Scan()
-			}
-			return
-
+			exit()
 		case 2:
 			partnerSpendPub = prompt256Key("Enter your partner's public spend key:")
 			partnerViewPub = prompt256Key("Enter your partner's public view key:")
-
 		case 3:
-			myKey = &vanity.Key{new([32]byte), new([32]byte)}
+			myKey = &vanity.Key{SpendKey: new([32]byte), ViewKey: new([32]byte)}
 			myKey.SpendKey = prompt256Key("Enter your partial private spend key:")
 			myKey.ViewKey = prompt256Key("Enter your partial private view key:")
 
-			partnerKey = &vanity.Key{new([32]byte), new([32]byte)}
+			partnerKey = &vanity.Key{SpendKey: new([32]byte), ViewKey: new([32]byte)}
 			partnerKey.SpendKey = prompt256Key("Enter your partner's partial private spend key:")
 			partnerKey.ViewKey = prompt256Key("Enter your partner's partial private view key:")
 		}
+
+	case 3:
+		fmt.Println()
+		fmt.Println("=========================================")
+		fmt.Println("Name: vanity-monero")
+		fmt.Println("Description: Generate vanity address for CryptoNote currency (Monero etc.).")
+		fmt.Println("Repo: https://github.com/Equim-chan/vanity-monero")
+		fmt.Println("License: MIT")
+		fmt.Println()
+		fmt.Println("If you love this idea, maybe you can buy me some coffee at")
+		fmt.Println("4777777jHFbZB4gyqrB1JHDtrGFusyj4b3M2nScYDPKEM133ng2QDrK9ycqizXS2XofADw5do5rU19LQmpTGCfeQTerm1Ti")
+		exit()
 	}
+	fmt.Println()
 
 	var network vanity.Network
 	fmt.Println("Select network:")
@@ -167,12 +178,7 @@ func main() {
 		fmt.Println()
 		fmt.Println()
 		fmt.Println("HINT: You had better test the mnemonic seeds in Monero official wallet to check if they are legit. If the seeds work and you want to use the address, write the seeds down on real paper, and never disclose it!")
-		fmt.Println()
-		if runtime.GOOS == "windows" {
-			fmt.Println("[Press Enter to exit]")
-			stdin.Scan()
-		}
-		return
+		exit()
 	}
 
 	var mMode matchMode
@@ -550,12 +556,7 @@ PATTERN:
 				fmt.Println("Give your partner the private keys shown above.")
 			}
 
-			fmt.Println()
-			if runtime.GOOS == "windows" {
-				fmt.Println("[Press Enter to exit]")
-				stdin.Scan()
-			}
-			return
+			exit()
 		}
 	}
 }
@@ -608,4 +609,13 @@ func prompt256Key(question string) *[32]byte {
 
 		return ret
 	}
+}
+
+func exit() {
+	fmt.Println()
+	if runtime.GOOS == "windows" {
+		fmt.Println("[Press Enter to exit]")
+		stdin.Scan()
+	}
+	os.Exit(0)
 }
