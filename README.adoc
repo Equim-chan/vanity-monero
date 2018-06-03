@@ -8,6 +8,13 @@ image:https://img.shields.io/github/license/Equim-chan/vanity-monero.svg[License
 
 vanity-monero is a tiny CLI tool that generates vanity address for CryptoNote currencies. Currently only Monero main net and test net are supported.
 
+== Features
+* Prefix matching from 1st or 3rd index of address string.
+* Regex matching at any position.
+* Multi-language mnemonic seeds generation.
+* Faster generation when there is only spend key that is needed in a specific pattern.
+* Support https://en.bitcoin.it/wiki/Split-key_vanity_address[split-key vanity address] generation, which makes scaled vanity mining potential.
+
 == Build
 === Using https://github.com/golang/dep[dep] (recommended)
 [source,shell]
