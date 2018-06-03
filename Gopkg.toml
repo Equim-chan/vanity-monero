@@ -1,0 +1,11 @@
+[[constraint]]
+  name = "github.com/paxos-bankchain/moneroutil"
+  branch = "master"
+
+[[constraint]]
+  name = "golang.org/x/crypto"
+  branch = "master"
+
+[prune]
+  go-tests = true
+  unused-packages = true
