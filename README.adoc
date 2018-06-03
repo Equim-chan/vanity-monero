@@ -39,11 +39,16 @@ Although you can view the https://github.com/Equim-chan/vanity-monero/releases[r
 == Donation
 If you love this idea, maybe you can buy me some coffee at
 
-* XMR: `4777777jHFbZB4gyqrB1JHDtrGFusyj4b3M2nScYDPKEM133ng2QDrK9ycqizXS2XofADw5do5rU19LQmpTGCfeQTerm1Ti`
-* DOGE: `DEqqqq8wENdASvWr3QYbpx9RNxhbX4zYHr`
-* BTC: `1Eqqqq9xR78wJyRXXgvR73HEfKdEwq68BT`
+XMR:: `4777777jHFbZB4gyqrB1JHDtrGFusyj4b3M2nScYDPKEM133ng2QDrK9ycqizXS2XofADw5do5rU19LQmpTGCfeQTerm1Ti`
+DOGE:: `DEqqqq8wENdASvWr3QYbpx9RNxhbX4zYHr`
+BTC:: `1Eqqqq9xR78wJyRXXgvR73HEfKdEwq68BT`
 
 Thanks!
+
+=== Proof
+Message:: https://github.com/Equim-chan/vanity-monero/raw/master/msg.txt[msg.txt]
+
+Signature:: `SigV1hcoEk7kbnjS6rd1y5nCE797e4wqPSTpcTVgCCM2pUg6cRm9fR5Ae5p9Ur2TWeZ6gBbPPhdZQ2n9FC7QwbhU4vovq`
 
 == License
 https://github.com/Equim-chan/vanity-monero/blob/master/LICENSE[MIT]
