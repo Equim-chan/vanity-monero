@@ -7,6 +7,14 @@ import (
 	"golang.org/x/crypto/sha3"
 )
 
+func pointAdd(dst, a, b *[32]byte) {
+	moneroutil.AddKeys((*moneroutil.Key)(dst), (*moneroutil.Key)(a), (*moneroutil.Key)(b))
+}
+
+func scAdd(dst, a, b *[32]byte) {
+	moneroutil.ScAdd((*moneroutil.Key)(dst), (*moneroutil.Key)(a), (*moneroutil.Key)(b))
+}
+
 func scReduce32(b *[32]byte) {
 	moneroutil.ScReduce32((*moneroutil.Key)(b))
 }
