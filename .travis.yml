@@ -4,7 +4,7 @@ language: go
 go:
   - "1.10.2"
   - tip
-go_import_path: ekyu.moe/h2s
+go_import_path: ekyu.moe/vanity-monero
 
 install:
   - go get -t ./...
