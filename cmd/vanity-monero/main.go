@@ -67,6 +67,7 @@ func main() {
 			fmt.Println("Partial Private View Key:")
 			fmt.Printf("%x\n", *key.ViewKey)
 			fmt.Println()
+			fmt.Println("=========================================")
 			fmt.Println("Belows are your partial public key. Hand it to your partner and also tell him the pattern you want.")
 			fmt.Println("Partial Public Spend Key:")
 			fmt.Printf("%x\n", *pubSpend)
@@ -75,9 +76,11 @@ func main() {
 			fmt.Printf("%x\n", *pubView)
 			fmt.Println()
 			exit()
+
 		case 2:
 			partnerSpendPub = prompt256Key("Enter your partner's public spend key:")
 			partnerViewPub = prompt256Key("Enter your partner's public view key:")
+
 		case 3:
 			myKey = &vanity.Key{SpendKey: new([32]byte), ViewKey: new([32]byte)}
 			myKey.SpendKey = prompt256Key("Enter your partial private spend key:")

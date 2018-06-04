@@ -3,6 +3,6 @@ package vanity
 type Network []byte
 
 var (
-	MoneroMainNetwork = []byte{0x12}
-	MoneroTestNetwork = []byte{0x35}
+	MoneroMainNetwork = Network{0x12}
+	MoneroTestNetwork = Network{0x35}
 )

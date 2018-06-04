@@ -5,6 +5,8 @@ import (
 	"hash/crc32"
 )
 
+const DictSize = 1626
+
 var (
 	ChineseSimplified = NewDict(chineseSimplifiedTable, 1)
 	Dutch             = NewDict(dutchTable, 4)
