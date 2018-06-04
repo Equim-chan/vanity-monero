@@ -30,6 +30,7 @@ func init() {
 	scReduce32(maxPriv)
 }
 
+// IsValidPrefix checks if a given prefix is valid as per the given network.
 func IsValidPrefix(prefix string, network []byte, initIndex int) bool {
 	// check length
 	if len(prefix) == 0 || len(prefix) >= 95-initIndex {
@@ -71,10 +72,14 @@ func IsValidPrefix(prefix string, network []byte, initIndex int) bool {
 	return true
 }
 
+// NeedOnlySpendKey estimates if the generation of vanity address with given
+// prefix can be done with brute force only the spend key.
 func NeedOnlySpendKey(prefix string) bool {
 	return len(prefix) <= halfAddressLength-3
 }
 
+// EstimatedDifficulty estimates the difficulty to generate a vanity address
+// with given prefix
 func EstimatedDifficulty(prefix string, caseSensitive, includeNetwork bool) uint64 {
 	diff := uint64(0)
 
