@@ -16,6 +16,11 @@ vanity-monero is a tiny CLI tool that generates vanity address for CryptoNote cu
 * Support https://en.bitcoin.it/wiki/Split-key_vanity_address[split-key vanity address] generation, which makes scaled vanity mining potential.
 
 == Build
+=== Requirements
+* git 2.17.1 or above
+* Go 1.10.2 or above
+* dep v0.4.1 or above (optional)
+
 === Using https://github.com/golang/dep[dep] (recommended)
 [source,shell]
 ----
@@ -33,11 +38,17 @@ $ go get -u ekyu.moe/vanity-monero/cmd/vanity-monero
 $ $GOPATH/bin/vanity-monero
 ----
 
-== Pre-built Binary
+=== Pre-built Binary
 Although you can view the https://github.com/Equim-chan/vanity-monero/releases[release] page for handy pre-built binaries, it's highly recommended to build it on your own! Go is really easy to build.
 
+== Guides
+=== Best Practice Regarding to Security
+Since this tool support split-key mode, it's better to generate partial private keys in https://tails.boum.org/[Tails] and lock them in the persistent volume at first, then copy their corresponding partial public keys to a seperate machine, such as VPS, or just your routine Windows. It doesn't matter if that seperate machine is trusted or not. After that, set your patterns and keep it running until the result comes out. Finally, copy the generated partial private keys to Tails and join them altogether to compose the final private keys.
+
+It is cryptographically guranteed that the final address will match your pattern, and the final private keys will not be disclosed to the untrusted compute party.
+
 == Donation
-If you love this idea, maybe you can buy me some coffee at
+If you love this idea, maybe you can consider buying me a cup of coffee at
 
 XMR:: `4777777jHFbZB4gyqrB1JHDtrGFusyj4b3M2nScYDPKEM133ng2QDrK9ycqizXS2XofADw5do5rU19LQmpTGCfeQTerm1Ti`
 DOGE:: `DEqqqq8wENdASvWr3QYbpx9RNxhbX4zYHr`
@@ -49,6 +60,9 @@ Thanks!
 Message:: https://github.com/Equim-chan/vanity-monero/raw/master/msg.txt[msg.txt]
 
 Signature:: `SigV1hcoEk7kbnjS6rd1y5nCE797e4wqPSTpcTVgCCM2pUg6cRm9fR5Ae5p9Ur2TWeZ6gBbPPhdZQ2n9FC7QwbhU4vovq`
+
+== External Links
+* https://www.reddit.com/r/Monero/comments/8o8wdz/i_just_wrote_a_vanity_address_generator_for_monero/[Discussion on Reddit]
 
 == License
 https://github.com/Equim-chan/vanity-monero/blob/master/LICENSE[MIT]

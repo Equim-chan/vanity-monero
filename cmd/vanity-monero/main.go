@@ -96,7 +96,7 @@ func main() {
 		fmt.Println("Repo: https://github.com/Equim-chan/vanity-monero")
 		fmt.Println("License: MIT")
 		fmt.Println()
-		fmt.Println("If you love this idea, maybe you can buy me some coffee at")
+		fmt.Println("If you love this idea, maybe you can consider buying me a cup coffee at")
 		fmt.Println("4777777jHFbZB4gyqrB1JHDtrGFusyj4b3M2nScYDPKEM133ng2QDrK9ycqizXS2XofADw5do5rU19LQmpTGCfeQTerm1Ti")
 		exit()
 	}
