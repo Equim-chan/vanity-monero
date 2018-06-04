@@ -1,5 +1,8 @@
 package vanity
 
+// Key consists of a ed25519 256-bit SpendKey and a ViewKey.
+// In order to make the mnemonic seeds work, ViewKey is actually derived from
+// SpendKey with Keccak256, also leading to SpendKey serving as the seed.
 type Key struct {
 	SpendKey, ViewKey *[32]byte
 }
@@ -30,7 +33,7 @@ func (k *Key) HalfToFull() {
 
 // HalfAddress encodes network and spend key only. This should only be used for
 // vanity.
-func (k *Key) HalfAddress(network []byte) string {
+func (k *Key) HalfAddress(network Network) string {
 	spendPub := k.PublicSpendKey()
 	address := encodeBase58(network, spendPub[:])
 
@@ -38,7 +41,7 @@ func (k *Key) HalfAddress(network []byte) string {
 }
 
 // Address encodes network, public spend key and view key in base58 format.
-func (k *Key) Address(network []byte) string {
+func (k *Key) Address(network Network) string {
 	spendPub := k.PublicSpendKey()
 	viewPub := k.PublicViewKey()
 
@@ -50,7 +53,7 @@ func (k *Key) Address(network []byte) string {
 
 // AddressWithAdditionalPublicKey adds extra spendPub and viewPub to k in an
 // ellipse curve sense (point add), returning the base58 encoded address of the sum.
-func (k *Key) AddressWithAdditionalPublicKey(network []byte, spendPub, viewPub *[32]byte) string {
+func (k *Key) AddressWithAdditionalPublicKey(network Network, spendPub, viewPub *[32]byte) string {
 	finalSpendPub, finalViewPub := new([32]byte), new([32]byte)
 	pointAdd(finalSpendPub, k.PublicSpendKey(), spendPub)
 	pointAdd(finalViewPub, k.PublicViewKey(), viewPub)
@@ -62,7 +65,7 @@ func (k *Key) AddressWithAdditionalPublicKey(network []byte, spendPub, viewPub *
 
 // HalfAddressWithAdditionalPublicKey adds extra spendPub to k in an
 // ellipse curve sense (point add), returning the base58 encoded address of the sum.
-func (k *Key) HalfAddressWithAdditionalPublicKey(network []byte, spendPub *[32]byte) string {
+func (k *Key) HalfAddressWithAdditionalPublicKey(network Network, spendPub *[32]byte) string {
 	finalSpendPub := new([32]byte)
 	pointAdd(finalSpendPub, k.PublicSpendKey(), spendPub)
 
