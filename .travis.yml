@@ -2,7 +2,7 @@ sudo: false
 
 language: go
 go:
-  - "1.10.2"
+  - "1.10.3"
   - tip
 go_import_path: ekyu.moe/vanity-monero
 
@@ -24,7 +24,7 @@ deploy:
     script: curl -SsL https://git.io/goreleaser | bash
     on:
       tags: true
-      condition: $TRAVIS_GO_VERSION = 1.10.2
+      condition: $TRAVIS_GO_VERSION = 1.10.3
 
 notifications:
   email:
