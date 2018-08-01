@@ -1,0 +1,6 @@
+github.com/ebfe/keccak v0.0.0-20150115210727-5cc570678d1b h1:BMyjwV6Fal/Ffphi4dJfulSxMeDl0xFS2vs5QLr6rsI=
+github.com/ebfe/keccak v0.0.0-20150115210727-5cc570678d1b/go.mod h1:fnviDXB7GJWiSUI9thIXmk9QKM8Rhj1JV/LcMRzkiVA=
+github.com/paxos-bankchain/moneroutil v0.0.0-20170611151923-33d7e0c11a62 h1:QYHPf1LKI9NldUrn3Elc6YQwJPJEbFgO+4vQCShYLTI=
+github.com/paxos-bankchain/moneroutil v0.0.0-20170611151923-33d7e0c11a62/go.mod h1:luERRHUHsQsJNogV9bXoGW6dRFS9qjv0121Z6Gg/iuk=
+golang.org/x/crypto v0.0.0-20180723164146-c126467f60eb h1:Ah9YqXLj6fEgeKqcmBuLCbAsrF3ScD7dJ/bYM0C6tXI=
+golang.org/x/crypto v0.0.0-20180723164146-c126467f60eb/go.mod h1:6SG95UA2DQfeDnfUPMdvaQW0Q7yPrPDi9nlGo2tz2b4=
