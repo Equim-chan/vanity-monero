@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  lint:
     docker:
       - image: circleci/golang:1.10.3
     working_directory: /go/src/ekyu.moe/vanity-monero
@@ -19,11 +19,13 @@ jobs:
     working_directory: /go/src/ekyu.moe/vanity-monero
     steps:
       - checkout
+      - run: go get -v -t -d ./...
       - run: curl -sL https://git.io/goreleaser | bash
 workflows:
   version: 2
   release:
     jobs:
+      - lint
       - release:
           filters:
             branches:
