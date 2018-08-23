@@ -19,20 +19,9 @@ vanity-monero is a tiny CLI tool that generates vanity address for CryptoNote cu
 == Build
 === Requirements
 * git 2.17.1 or above
-* Go 1.10.2 or above
+* Go 1.11 or above
 * dep v0.4.1 or above (optional)
 
-=== Using https://github.com/golang/dep[dep] (recommended)
-[source,shell]
-----
-$ git clone https://github.com/Equim-chan/vanity-monero.git $GOPATH/src/ekyu.moe/vanity-monero
-$ cd $GOPATH/src/ekyu.moe/vanity-monero
-$ dep ensure
-$ go install ekyu.moe/vanity-monero/cmd/vanity-monero
-$ $GOPATH/bin/vanity-monero
-----
-
-=== `go get` directly
 [source,shell]
 ----
 $ go get -u ekyu.moe/vanity-monero/cmd/vanity-monero
