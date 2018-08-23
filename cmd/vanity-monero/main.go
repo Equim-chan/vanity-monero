@@ -209,7 +209,7 @@ func main() {
 PATTERN:
 	var regex *regexp.Regexp
 	var needOnlySpendKey bool
-	pattern := prompt("Enter your prefix/regex:")
+	pattern := prompt("Enter your prefix/regex, which must be in ASCII and not include 'I', 'O', 'l':")
 	switch mMode {
 	case mmPrefix:
 		if !vanity.IsValidPrefix(pattern, network, 0) {
