@@ -25,13 +25,12 @@ var (
 // Dict is a dictionary for mnemonic seed.
 type Dict struct {
 	UniquePrefixLength int
-	Size               int
 	Table              *[DictSize]string
 	ReversedTable      map[string]int
 }
 
 func NewDict(table *[DictSize]string, prefixLen int) *Dict {
-	d := &Dict{prefixLen, len(table), table, make(map[string]int)}
+	d := &Dict{prefixLen, table, make(map[string]int)}
 	for i, v := range table {
 		d.ReversedTable[v] = i
 	}
@@ -43,10 +42,10 @@ func NewDict(table *[DictSize]string, prefixLen int) *Dict {
 func (d *Dict) Encode(key *[32]byte) *[25]string {
 	w := new([25]string)
 	for i := 0; i < 32; i += 4 {
-		x := int(binary.LittleEndian.Uint32(key[i : i+4]))
-		w1 := x % d.Size
-		w2 := (x/d.Size + w1) % d.Size
-		w3 := (x/d.Size/d.Size + w2) % d.Size
+		x := uint32(binary.LittleEndian.Uint32(key[i : i+4]))
+		w1 := x % DictSize
+		w2 := (x/DictSize + w1) % DictSize
+		w3 := (x/DictSize/DictSize + w2) % DictSize
 		w[i/4*3] = d.Table[w1]
 		w[i/4*3+1] = d.Table[w2]
 		w[i/4*3+2] = d.Table[w3]
@@ -63,7 +62,7 @@ func (d *Dict) getChecksumWord(w *[25]string) string {
 		h.Write([]byte(r))
 	}
 	sum := h.Sum32()
-	idx := int(sum) % 24
+	idx := sum % 24
 
 	return w[idx]
 }
