@@ -42,7 +42,7 @@ func NewDict(table *[DictSize]string, prefixLen int) *Dict {
 func (d *Dict) Encode(key *[32]byte) *[25]string {
 	w := new([25]string)
 	for i := 0; i < 32; i += 4 {
-		x := uint32(binary.LittleEndian.Uint32(key[i : i+4]))
+		x := binary.LittleEndian.Uint32(key[i : i+4])
 		w1 := x % DictSize
 		w2 := (x/DictSize + w1) % DictSize
 		w3 := (x/DictSize/DictSize + w2) % DictSize
