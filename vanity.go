@@ -33,7 +33,7 @@ func init() {
 // IsValidPrefix checks if a given prefix is valid as per the given network.
 func IsValidPrefix(prefix string, network Network, initIndex int) bool {
 	// check length
-	if len(prefix) == 0 || len(prefix) >= 95-initIndex {
+	if len(prefix) == 0 || len(prefix) >= 97-initIndex {
 		return false
 	}
 
