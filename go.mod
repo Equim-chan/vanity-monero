@@ -1,4 +1,4 @@
-module ekyu.moe/vanity-monero
+module github.com/malbit/vanity-arqma
 
 require (
 	github.com/ebfe/keccak v0.0.0-20150115210727-5cc570678d1b // indirect

@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-const halfAddressLength = 45
+const halfAddressLength = 46
 
 var (
 	minPriv = &[32]byte{
@@ -87,7 +87,7 @@ func EstimatedDifficulty(prefix string, caseSensitive, includeNetwork bool) uint
 	// origLen is bit count
 	origLen := int(math.Round(float64(len(prefix)) * 5.858))
 	if includeNetwork {
-		origLen -= 8
+		origLen -= 7
 	}
 	for i := 0; i < origLen; i++ {
 		diff |= 1 << uint(i)

@@ -14,8 +14,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	vanity "ekyu.moe/vanity-monero"
-	"ekyu.moe/vanity-monero/mnemonic"
+	vanity "github.com/malbit/vanity-arqma"
+	"github.com/malbit/vanity-arqma/mnemonic"
 )
 
 type (
