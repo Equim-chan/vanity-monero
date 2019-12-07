@@ -14,13 +14,13 @@ build:
     - goos: darwin
       goarch: 386
 
-archive:
-  replacements:
-    386: 32
-    amd64: 64
-    darwin: macos
-  name_template: "{{ .ProjectName }}-{{ .Os }}-{{ .Arch }}"
-  format: tar.xz
-  format_overrides:
-    - goos: windows
-      format: zip
+archives:
+  - replacements:
+      386: 32
+      amd64: 64
+      darwin: macos
+    name_template: "{{ .ProjectName }}-{{ .Os }}-{{ .Arch }}"
+    format: tar.xz
+    format_overrides:
+      - goos: windows
+        format: zip
