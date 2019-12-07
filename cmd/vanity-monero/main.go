@@ -109,11 +109,14 @@ func main() {
 	fmt.Println("Select network:")
 	fmt.Println("1) Monero main network")
 	fmt.Println("2) Monero test network")
-	switch promptNumber("Your choice:", 1, 2) {
+	fmt.Println("3) GRAFT main network")
+	switch promptNumber("Your choice:", 1, 3) {
 	case 1:
 		network = vanity.MoneroMainNetwork
 	case 2:
 		network = vanity.MoneroTestNetwork
+	case 3:
+		network = vanity.GraftMainNetwork
 	}
 	fmt.Println()
 
