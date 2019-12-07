@@ -1,7 +1,8 @@
 build:
   main: cmd/vanity-monero/main.go
   binary: vanity-monero
-  ldflags: -s -w
+  flags: -trimpath
+  ldflags: -s -w -buildid=
   goos:
     - darwin
     - linux
