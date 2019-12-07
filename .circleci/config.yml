@@ -2,7 +2,7 @@ version: 2
 jobs:
   lint:
     docker:
-      - image: circleci/golang:1.10.3
+      - image: circleci/golang:latest
     working_directory: /go/src/ekyu.moe/vanity-monero
     steps:
       - checkout
@@ -15,7 +15,7 @@ jobs:
           command: go vet ./...
   release:
     docker:
-      - image: circleci/golang:1.10.3
+      - image: circleci/golang:latest
     working_directory: /go/src/ekyu.moe/vanity-monero
     steps:
       - checkout
