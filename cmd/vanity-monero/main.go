@@ -106,7 +106,21 @@ func main() {
 	fmt.Println()
 
 	var network vanity.Network
-	network = vanity.AvrioMainNetwork
+	fmt.Println("Select network:")
+	fmt.Println("1) Monero main network")
+	fmt.Println("2) Monero test network")
+	fmt.Println("3) GRAFT main network")
+	fmt.Println("3) Avrio main network")
+	switch promptNumber("Your choice:", 1, 4) {
+	case 1:
+		network = vanity.MoneroMainNetwork
+	case 2:
+		network = vanity.MoneroTestNetwork
+	case 3:
+		network = vanity.GraftMainNetwork
+	case 4:
+		network = vanity.AvrioMainNetwork
+	}
 	fmt.Println()
 
 	var dict *mnemonic.Dict
