@@ -106,18 +106,7 @@ func main() {
 	fmt.Println()
 
 	var network vanity.Network
-	fmt.Println("Select network:")
-	fmt.Println("1) Monero main network")
-	fmt.Println("2) Monero test network")
-	fmt.Println("3) GRAFT main network")
-	switch promptNumber("Your choice:", 1, 3) {
-	case 1:
-		network = vanity.MoneroMainNetwork
-	case 2:
-		network = vanity.MoneroTestNetwork
-	case 3:
-		network = vanity.GraftMainNetwork
-	}
+	network = vanity.AvrioMainNetwork
 	fmt.Println()
 
 	var dict *mnemonic.Dict
@@ -183,7 +172,7 @@ func main() {
 		fmt.Printf("%x\n", *finalKey.ViewKey)
 		fmt.Println()
 		fmt.Println()
-		fmt.Println("HINT: You had better test the mnemonic seeds in Monero official wallet to check if they are legit. If the seeds work and you want to use the address, write the seeds down on real paper, and never disclose it!")
+		fmt.Println("HINT: You had better test the mnemonic seeds in Avrio's official wallet to check if they are correct. If the seeds work and you want to use the address, write the seeds down on real paper, and never disclose it!")
 		exit()
 	}
 
