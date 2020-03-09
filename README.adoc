@@ -7,7 +7,7 @@ image:https://img.shields.io/badge/godoc-reference-5272B4.svg[Godoc, link=https:
 image:https://goreportcard.com/badge/github.com/Equim-chan/vanity-monero[Go Report Card, link=https://goreportcard.com/report/github.com/Equim-chan/vanity-monero]
 image:https://img.shields.io/github/license/Equim-chan/vanity-monero.svg[License, link=https://github.com/Equim-chan/vanity-monero/blob/master/LICENSE]
 
-vanity-monero is a tiny CLI tool that generates vanity address for CryptoNote currencies. Currently only Monero main net and test net are supported.
+vanity-monero is a tiny CLI tool that generates vanity address for CryptoNote currencies. Currently only Monero main net and test net, GRAFT mainnet and avrio are supported.
 
 == Features
 * Prefix matching from 1st or 3rd index of address string.
