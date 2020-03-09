@@ -1,13 +1,13 @@
 = vanity-monero
-Leo Cornelius  <https://github.com/leocornelius[@leocornelius]>
 Equim <https://github.com/Equim-chan[@Equim-chan]>
 
-image:https://img.shields.io/github/release/Equim-chan/vanity-monero.svg[Release, link=https://github.com/avrio-project/vanity-avrio/releases/latest]
+image:https://img.shields.io/circleci/project/github/Equim-chan/vanity-monero.svg[CircleCI, link=https://circleci.com/gh/Equim-chan/vanity-monero]
+image:https://img.shields.io/github/release/Equim-chan/vanity-monero.svg[Release, link=https://github.com/Equim-chan/vanity-monero/releases/latest]
 image:https://img.shields.io/badge/godoc-reference-5272B4.svg[Godoc, link=https://godoc.org/ekyu.moe/vanity-monero]
-image:https://goreportcard.com/badge/github.com/avrio-projec/vanity-avrio[Go Report Card, link=https://goreportcard.com/report/github.com/avrio-project/vanity-avrio]
-image:https://img.shields.io/github/license/avrio-project/vanity-avrio.svg[License, link=https://github.com/avrio-project/vanity-avrio/blob/master/LICENSE]
+image:https://goreportcard.com/badge/github.com/Equim-chan/vanity-monero[Go Report Card, link=https://goreportcard.com/report/github.com/Equim-chan/vanity-monero]
+image:https://img.shields.io/github/license/Equim-chan/vanity-monero.svg[License, link=https://github.com/Equim-chan/vanity-monero/blob/master/LICENSE]
 
-vanity-avrio is a tiny CLI tool that generates vanity address for avrio. it is forked from https://github.com/Equim-chan/vanity-monero
+vanity-monero is a tiny CLI tool that generates vanity address for CryptoNote currencies. Currently only Monero main net and test net, GRAFT mainnet and avrio are supported.
 
 == Features
 * Prefix matching from 1st or 3rd index of address string.
@@ -29,15 +29,13 @@ $ $GOPATH/bin/vanity-monero
 ----
 
 === Pre-built Binary
-Although you can view the https://github.com/avrio-project/vanity-avrio/releases[release] page for handy pre-built binaries, it's highly recommended to build it on your own! Go is really easy to build.
+Although you can view the https://github.com/Equim-chan/vanity-monero/releases[release] page for handy pre-built binaries, it's highly recommended to build it on your own! Go is really easy to build.
 
 == Guides
 === Best Practice Regarding to Security
 Since this tool support split-key mode, it's better to generate partial private keys in https://tails.boum.org/[Tails] and lock them in the persistent volume at first, then copy their corresponding partial public keys to a seperate machine, such as VPS, or just your routine Windows. It doesn't matter if that seperate machine is trusted or not. After that, set your patterns and keep it running until the result comes out. Finally, copy the generated partial private keys to Tails and join them altogether to compose the final private keys.
 
 It is cryptographically guranteed that the final address will match your pattern, and the final private keys will not be disclosed to the untrusted compute party.
-
-### Below are the donation addresses for the repo it was forked from!
 
 == Donation
 If you love this idea, maybe you can consider buying me a cup of coffee at
